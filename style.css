@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", serif;
+}
+
+:root {
+  /* Colors */
+  --primary-color: #6200ee;
+  --secondary-color: #3700b3;
+  --negative-red: #ee0015;
+  --negative-red-hover: #b00020;
+  --positive-green: #8cee00;
+  --positive-green-hover: #a4ff22;
+
+  /* Consistent design */
+  --subtle-border-radius: 4px;
+  --hidden-border: 1px solid transparent;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 30% auto;
+  font-size: 18px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  height: 100vh;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+form {
+  margin: 20px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  min-width: 70%;
+  max-width: 400px;
+  background-color: white;
+  color: var(--primary-color);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+form input,
+form select {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: var(--subtle-border-radius);
+  font-size: 1rem;
+}
+
+form textarea {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: var(--subtle-border-radius);
+  font-size: 1rem;
+  resize: none;
+}
+
+form input[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+}
+
+form input[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}
+
+.delete-all-button {
+  background-color: var(--negative-red);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: var(--subtle-border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  user-select: none;
+  font-weight: 500;
+}
+
+.delete-all-button:hover {
+  background-color: var(--negative-red-hover);
+}
+
+/* List container style */
+#list-container {
+  flex: 1;
+  margin: 20px auto;
+  width: 80%;
+  max-height: calc(
+    100vh - 60px
+  ); /* Adjust this as needed to fit under the header */
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* Book container style */
+.book-container {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 10px;
+  max-width: 100%;
+}
+
+.book-container * {
+  padding: 0.5rem;
+  border-radius: var(--subtle-border-radius);
+  border-color: var(--secondary-color);
+  outline: var(--primary-color);
+}
+
+.book-container input:read-only {
+  border: var(--hidden-border);
+  outline: none;
+}
+
+.book-container textarea:read-only {
+  border: var(--hidden-border);
+  outline: none;
+}
+
+.book-container select {
+  width: fit-content;
+}
+
+.book-container select:disabled {
+  background-color: white;
+  border: var(--hidden-border);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.book-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.book-author {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.book-category {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #888;
+}
+
+.book-review {
+  font-size: 1rem;
+  color: #181818;
+  line-height: 1.5;
+}
+
+.book-rating {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #181818;
+}
+
+/* Filters */
+label[for="filter-category"] {
+  font-size: 1rem;
+  margin-top: 20px;
+  display: block;
+  font-weight: bold;
+}
+
+select#filter-category {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--subtle-border-radius);
+}
+
+/* Buttons */
+.delete-button {
+  width: fit-content;
+  background-color: var(--negative-red);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: var(--subtle-border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  user-select: none;
+}
+
+.delete-button:hover {
+  background-color: var(--negative-red-hover);
+}
+
+.edit-button {
+  width: fit-content;
+  background-color: var(--positive-green);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: var(--subtle-border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  user-select: none;
+}
+
+.edit-button:hover {
+  background-color: var(--positive-green-hover);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.button-container button {
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+/* Modal Styling */
+dialog {
+  position: fixed; /* Ensure it stays relative to the viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the dialog */
+  background: white;
+  border: none;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  max-width: 90%; /* Responsive width */
+  width: 500px;
+}
+
+dialog p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+dialog button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: var(--subtle-border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+dialog button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Scrollbar style */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}

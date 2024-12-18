@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Book Tracker</title>
+  </head>
+  <body>
+    <header>
+      <h1>Book Tracker&trade;</h1>
+      <form id="book-form">
+        <h2>Submit Book</h2>
+        <label for="book-input">Book name</label>
+        <input type="text" name="book-input" id="book-input" />
+
+        <label for="author-input">Author name</label>
+        <input type="text" name="author-input" id="author-input" />
+
+        <label for="category-input">Category</label>
+        <select name="category-input" id="category-input">
+          <option value="" selected hidden>Select an option</option>
+        </select>
+
+        <label for="review-input">Review</label>
+        <textarea name="review-input" id="review-input"></textarea>
+
+        <label for="rating-input">Rating</label>
+        <select name="rating-input" id="rating-input"></select>
+        <input type="submit" />
+      </form>
+    </header>
+    <main id="list-container"></main>
+  </body>
+</html>
